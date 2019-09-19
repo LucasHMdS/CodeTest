@@ -89,3 +89,6 @@ Dependencies/
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+# R.Swift
+*.generated.swift
