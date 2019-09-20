@@ -27,6 +27,7 @@
 		3071ABFB23325D5300D94BA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071ABFA23325D5300D94BA1 /* MainViewController.swift */; };
 		3071AC0023325D5500D94BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3071ABFF23325D5500D94BA1 /* Assets.xcassets */; };
 		3071AC0E23325D5500D94BA1 /* PixelTMDbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071AC0D23325D5500D94BA1 /* PixelTMDbTests.swift */; };
+		30FBB7FC23355FEF00EFE5D0 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */; };
 		6CCED5315160A2B154898C3B /* Pods_PixelTMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB79C2F435E8814C34250D5 /* Pods_PixelTMDbTests.framework */; };
 		F3A84C1B33554B6C2EBBF9CD /* Pods_PixelTMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5FAFA4D1A3FC45F7A08D1EC /* Pods_PixelTMDb.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		3071AC0923325D5500D94BA1 /* PixelTMDbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelTMDbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071AC0D23325D5500D94BA1 /* PixelTMDbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelTMDbTests.swift; sourceTree = "<group>"; };
 		3071AC0F23325D5500D94BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		47755E91A3073C113BD7AA93 /* Pods-PixelTMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDb.debug.xcconfig"; path = "Target Support Files/Pods-PixelTMDb/Pods-PixelTMDb.debug.xcconfig"; sourceTree = "<group>"; };
 		6BE41844FF5D802D0505AAC9 /* Pods-PixelTMDbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDbTests.debug.xcconfig"; path = "Target Support Files/Pods-PixelTMDbTests/Pods-PixelTMDbTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F4B61182FFBE9328BC8D86 /* Pods-PixelTMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDb.release.xcconfig"; path = "Target Support Files/Pods-PixelTMDb/Pods-PixelTMDb.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				3024533D23340C4D00492877 /* MainViewModel.swift */,
+				30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -387,7 +390,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -464,6 +467,7 @@
 				300118A42332CBCF00DA9C3B /* DetailViewController.swift in Sources */,
 				300118B22333F16700DA9C3B /* MoviesService.swift in Sources */,
 				300118AC2333BB4500DA9C3B /* CashTableViewCell.swift in Sources */,
+				30FBB7FC23355FEF00EFE5D0 /* MovieCellViewModel.swift in Sources */,
 				300118A22332AC5B00DA9C3B /* MovieTableViewCell.swift in Sources */,
 				3024533C2334032D00492877 /* Genre.swift in Sources */,
 				300118AA2333BAFD00DA9C3B /* DatesTableViewCell.swift in Sources */,

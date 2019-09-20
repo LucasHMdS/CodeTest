@@ -13,6 +13,7 @@ extension UILabel {
         case cellMain
         case pageTitle
         case cellSide
+        case error
     }
     
     func setStyle(_ style: Style) {
@@ -29,6 +30,10 @@ extension UILabel {
                 self.textColor = R.color.sideTextColor()
                 self.textAlignment = .left
                 self.font = UIFont.systemFont(ofSize: CGFloat(15))
+            case .error:
+                self.textColor = R.color.sideTextColor()
+                self.textAlignment = .center
+                self.font = UIFont.systemFont(ofSize: CGFloat(17))
         }
     }
 }

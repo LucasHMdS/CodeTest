@@ -21,9 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     private func setupRootWindow() {
-        let viewController = MainViewController()
+        let mainViewModel = MainViewModel()
+        let mainViewController = MainViewController()
+        mainViewController.viewModel = mainViewModel
         let navigationController = UINavigationController()
-        navigationController.viewControllers = [viewController]
+        navigationController.viewControllers = [mainViewController]
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
