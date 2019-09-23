@@ -13,6 +13,7 @@ class DatesTableViewCell: UITableViewCell {
     private let timesView: UIView = {
         let view = UIView()
         view.backgroundColor = R.color.cardBackgroundColor()
+        view.layer.cornerRadius = 5.0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,29 +41,37 @@ class DatesTableViewCell: UITableViewCell {
     private func setupConstraints() {
         let edge = CGFloat(20)
         let distance = CGFloat(10)
-        timesView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (distance / 2))
-        timesView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: edge)
-        timesView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: edge)
-        timesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * (distance / 2)))
+        timesView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (distance / 2)).isActive = true
+        timesView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: edge).isActive = true
+        timesView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: (-1 * edge)).isActive = true
+        timesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * (distance / 2))).isActive = true
         
-        runtimeLabel.topAnchor.constraint(equalTo: timesView.topAnchor, constant: edge)
-        runtimeLabel.leftAnchor.constraint(equalTo: timesView.leftAnchor, constant: edge)
-        runtimeLabel.rightAnchor.constraint(equalTo: timesView.rightAnchor, constant: (-1 * edge))
+        runtimeLabel.topAnchor.constraint(equalTo: timesView.topAnchor, constant: edge).isActive = true
+        runtimeLabel.leftAnchor.constraint(equalTo: timesView.leftAnchor, constant: edge).isActive = true
+        runtimeLabel.rightAnchor.constraint(equalTo: timesView.rightAnchor, constant: (-1 * edge)).isActive = true
         
-        releaseLabel.topAnchor.constraint(equalTo: runtimeLabel.bottomAnchor, constant: distance)
-        releaseLabel.leftAnchor.constraint(equalTo: runtimeLabel.leftAnchor)
-        releaseLabel.rightAnchor.constraint(equalTo: runtimeLabel.rightAnchor)
-        releaseLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * edge))
+        releaseLabel.topAnchor.constraint(equalTo: runtimeLabel.bottomAnchor, constant: distance).isActive = true
+        releaseLabel.leftAnchor.constraint(equalTo: runtimeLabel.leftAnchor).isActive = true
+        releaseLabel.rightAnchor.constraint(equalTo: runtimeLabel.rightAnchor).isActive = true
+        releaseLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * edge)).isActive = true
     }
     
     private func setupView() {
+        contentView.backgroundColor = .clear
+        
         setupSubviews()
         setupConstraints()
     }
     
-    // MARK: - Cell Lifecycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: - Actions
+    func setupDates(withMovie movie: Movie) {
         setupView()
+        
+        releaseLabel.text = movie.releaseDate
+        guard let runtime = movie.runtime else {
+            runtimeLabel.text = R.string.main.runtimeNotDefined()
+            return
+        }
+        runtimeLabel.text = "\(runtime)"
     }
 }

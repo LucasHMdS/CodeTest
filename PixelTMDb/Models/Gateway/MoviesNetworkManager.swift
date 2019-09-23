@@ -11,7 +11,7 @@ import RxSwift
 
 class MoviesNetworkManager {
     // MARK: - Private Constats
-    private let provider = MoyaProvider<MoviesService>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    private let provider = MoyaProvider<MoviesService>() //Debug: (plugins: [NetworkLoggerPlugin(verbose: true)])
     
     // MARK: - Public Constants
     static let shared = MoviesNetworkManager()
@@ -27,13 +27,19 @@ class MoviesNetworkManager {
             .map(UpcomingResponse.self)
             .catchError {
                 error in
-                
-                // TODO: Handle Error
                 throw error
             }
     }
     
     func getMovie(id: Int) -> Single<Movie> {
         return provider.rx.request(.getMovie(id: id)).filterSuccessfulStatusAndRedirectCodes().map(Movie.self)
+    }
+    
+    func getBasePosterPath() -> String {
+        return "https://image.tmdb.org/t/p/w154"
+    }
+    
+    func getBaseBackdropPath() -> String {
+        return "https://image.tmdb.org/t/p/w780"
     }
 }

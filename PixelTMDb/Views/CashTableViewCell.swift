@@ -13,6 +13,7 @@ class CashTableViewCell: UITableViewCell {
     private let cashView: UIView = {
         let view = UIView()
         view.backgroundColor = R.color.cardBackgroundColor()
+        view.layer.cornerRadius = 5.0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,29 +41,42 @@ class CashTableViewCell: UITableViewCell {
     private func setupConstraints() {
         let edge = CGFloat(20)
         let distance = CGFloat(10)
-        cashView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (distance / 2))
-        cashView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: edge)
-        cashView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: edge)
-        cashView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * (distance / 2)))
+        cashView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (distance / 2)).isActive = true
+        cashView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: edge).isActive = true
+        cashView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: (-1 * edge)).isActive = true
+        cashView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * (distance / 2))).isActive = true
         
-        budgetLabel.topAnchor.constraint(equalTo: cashView.topAnchor, constant: edge)
-        budgetLabel.leftAnchor.constraint(equalTo: cashView.leftAnchor, constant: edge)
-        budgetLabel.rightAnchor.constraint(equalTo: cashView.rightAnchor, constant: (-1 * edge))
+        budgetLabel.topAnchor.constraint(equalTo: cashView.topAnchor, constant: edge).isActive = true
+        budgetLabel.leftAnchor.constraint(equalTo: cashView.leftAnchor, constant: edge).isActive = true
+        budgetLabel.rightAnchor.constraint(equalTo: cashView.rightAnchor, constant: (-1 * edge)).isActive = true
         
-        revenueLabel.topAnchor.constraint(equalTo: budgetLabel.bottomAnchor, constant: distance)
-        revenueLabel.leftAnchor.constraint(equalTo: budgetLabel.leftAnchor)
-        revenueLabel.rightAnchor.constraint(equalTo: budgetLabel.rightAnchor)
-        revenueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * edge))
+        revenueLabel.topAnchor.constraint(equalTo: budgetLabel.bottomAnchor, constant: distance).isActive = true
+        revenueLabel.leftAnchor.constraint(equalTo: budgetLabel.leftAnchor).isActive = true
+        revenueLabel.rightAnchor.constraint(equalTo: budgetLabel.rightAnchor).isActive = true
+        revenueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: (-1 * edge)).isActive = true
     }
     
     private func setupView() {
+        contentView.backgroundColor = .clear
+        
         setupSubviews()
         setupConstraints()
     }
     
-    // MARK: - Cell Lifecycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    // MARK: - Actions
+    func setupCash(withMovie movie: Movie) {
         setupView()
+        
+        if let budget = movie.budget {
+            budgetLabel.text = "\(budget)"
+        } else {
+            budgetLabel.text = R.string.main.budgetNotDefined()
+        }
+        
+        if let revenue = movie.revenue {
+            revenueLabel.text = "\(revenue)"
+        } else {
+            revenueLabel.text = R.string.main.revenueNotDefined()
+        }
     }
 }

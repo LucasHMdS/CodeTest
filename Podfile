@@ -1,9 +1,10 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '11.0'
 
 target 'PixelTMDb' do
   use_frameworks!
   
+  pod 'Kingfisher', '~> 5'
   pod 'Moya/RxSwift', '~> 13'
   pod 'R.swift', '~> 5'
   pod 'RxCocoa', '~> 4'
@@ -11,7 +12,5 @@ target 'PixelTMDb' do
 
   target 'PixelTMDbTests' do
     inherit! :search_paths
-    
-    pod 'Nimble', '~> 6'
   end
 end

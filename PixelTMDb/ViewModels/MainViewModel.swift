@@ -7,39 +7,55 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class MainViewModel {
     // MARK: - Private Constants & Variables
     private let disposeBag = DisposeBag()
-    private let loadInProgress = Variable(false)
-    private let movies = Variable([Movie]())
-    private var currentPage = 0
-    
+    private var movieCount = 0
+    private var currentPage = 1
+    private var totalPages = Int.max
     
     // MARK: - Public Constants & Variables
-    let onShowError = PublishSubject<String>()
-    
-    var displayMovies: Observable<[Movie]> {
-        return movies.asObservable()
-    }
-    
-    var isLoading: Observable<Bool> {
-        return loadInProgress.asObservable().distinctUntilChanged()
-    }
+    let errorMessage: PublishSubject<String> = PublishSubject()
+    let informationMessage: PublishSubject<String> = PublishSubject()
+    let isLoading: PublishSubject<Bool> = PublishSubject()
+    let movies: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
     
     // MARK: - Public Functions
     func fetchUpcomingMovies() {
-        loadInProgress.value = true
+        isLoading.onNext(true)
+        guard (currentPage < totalPages) else {
+            self.isLoading.onNext(false)
+            self.informationMessage.onNext(R.string.main.noMoreMoviesToLoad())
+            return
+        }
+        
         MoviesNetworkManager.shared.getUpcoming(page: currentPage).subscribe(onSuccess: {
             [weak self] upcomingResponse in
             guard let `self` = self else { return }
-            self.loadInProgress.value = false
-            self.movies.value.append(contentsOf: upcomingResponse.results)
+            self.isLoading.onNext(false)
+            self.totalPages = upcomingResponse.totalPages
+            
+            let upcomingCount = upcomingResponse.results.count
+            if (upcomingCount > 0) {
+                self.movieCount += upcomingCount
+                self.movies.accept(upcomingResponse.results)
+            } else {
+                self.informationMessage.onNext(R.string.main.noMoreMoviesToLoad())
+            }
+            
+            self.currentPage += 1
         }, onError: {
             [weak self] error in
             guard let `self` = self else { return }
-            self.loadInProgress.value = false
-            // TODO: Set error
+            self.isLoading.onNext(false)
+            self.errorMessage.onNext(error.localizedDescription)
         }).disposed(by: disposeBag)
+    }
+    
+    func loadedMovie(index: Int) {
+        guard (index > (movieCount - 3)) else { return }
+        self.fetchUpcomingMovies()
     }
 }

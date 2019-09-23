@@ -26,9 +26,12 @@
 		3071ABF923325D5300D94BA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071ABF823325D5300D94BA1 /* AppDelegate.swift */; };
 		3071ABFB23325D5300D94BA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071ABFA23325D5300D94BA1 /* MainViewController.swift */; };
 		3071AC0023325D5500D94BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3071ABFF23325D5500D94BA1 /* Assets.xcassets */; };
-		3071AC0E23325D5500D94BA1 /* PixelTMDbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071AC0D23325D5500D94BA1 /* PixelTMDbTests.swift */; };
-		30FBB7FC23355FEF00EFE5D0 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */; };
 		6CCED5315160A2B154898C3B /* Pods_PixelTMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB79C2F435E8814C34250D5 /* Pods_PixelTMDbTests.framework */; };
+		A7DE5A4B2338583600AE236D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE5A4A2338583600AE236D /* DetailViewModel.swift */; };
+		A7DE5A4D233878EB00AE236D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE5A4C233878EB00AE236D /* UIView+Extension.swift */; };
+		A7DE5A502338812000AE236D /* MoviesGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE5A4F2338812000AE236D /* MoviesGatewayTests.swift */; };
+		A7DE5A54233884C500AE236D /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE5A53233884C500AE236D /* DetailViewModelTest.swift */; };
+		A7DE5A562338883E00AE236D /* MainViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE5A552338883E00AE236D /* MainViewModelTest.swift */; };
 		F3A84C1B33554B6C2EBBF9CD /* Pods_PixelTMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5FAFA4D1A3FC45F7A08D1EC /* Pods_PixelTMDb.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,11 +69,14 @@
 		3071ABFF23325D5500D94BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3071AC0423325D5500D94BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071AC0923325D5500D94BA1 /* PixelTMDbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelTMDbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3071AC0D23325D5500D94BA1 /* PixelTMDbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelTMDbTests.swift; sourceTree = "<group>"; };
 		3071AC0F23325D5500D94BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		47755E91A3073C113BD7AA93 /* Pods-PixelTMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDb.debug.xcconfig"; path = "Target Support Files/Pods-PixelTMDb/Pods-PixelTMDb.debug.xcconfig"; sourceTree = "<group>"; };
 		6BE41844FF5D802D0505AAC9 /* Pods-PixelTMDbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDbTests.debug.xcconfig"; path = "Target Support Files/Pods-PixelTMDbTests/Pods-PixelTMDbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7DE5A4A2338583600AE236D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		A7DE5A4C233878EB00AE236D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A7DE5A4F2338812000AE236D /* MoviesGatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGatewayTests.swift; sourceTree = "<group>"; };
+		A7DE5A53233884C500AE236D /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
+		A7DE5A552338883E00AE236D /* MainViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTest.swift; sourceTree = "<group>"; };
 		B9F4B61182FFBE9328BC8D86 /* Pods-PixelTMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelTMDb.release.xcconfig"; path = "Target Support Files/Pods-PixelTMDb/Pods-PixelTMDb.release.xcconfig"; sourceTree = "<group>"; };
 		CCB79C2F435E8814C34250D5 /* Pods_PixelTMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelTMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FAFA4D1A3FC45F7A08D1EC /* Pods_PixelTMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelTMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				3024533D23340C4D00492877 /* MainViewModel.swift */,
-				30FBB7FB23355FEF00EFE5D0 /* MovieCellViewModel.swift */,
+				A7DE5A4A2338583600AE236D /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				300118AE2333C6DC00DA9C3B /* UILabel+Extension.swift */,
+				A7DE5A4C233878EB00AE236D /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,7 +215,8 @@
 		3071AC0C23325D5500D94BA1 /* PixelTMDbTests */ = {
 			isa = PBXGroup;
 			children = (
-				3071AC0D23325D5500D94BA1 /* PixelTMDbTests.swift */,
+				A7DE5A522338847500AE236D /* ViewModel */,
+				A7DE5A512338843500AE236D /* Model */,
 				3071AC0F23325D5500D94BA1 /* Info.plist */,
 			);
 			path = PixelTMDbTests;
@@ -242,6 +250,23 @@
 				2F1574FA6AA0BD24A65E37C7 /* Pods-PixelTMDbTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A7DE5A512338843500AE236D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7DE5A4F2338812000AE236D /* MoviesGatewayTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7DE5A522338847500AE236D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7DE5A53233884C500AE236D /* DetailViewModelTest.swift */,
+				A7DE5A552338883E00AE236D /* MainViewModelTest.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B013088F9C64A603906C403F /* Frameworks */ = {
@@ -284,7 +309,6 @@
 				3071AC0523325D5500D94BA1 /* Sources */,
 				3071AC0623325D5500D94BA1 /* Frameworks */,
 				3071AC0723325D5500D94BA1 /* Resources */,
-				64DC13CC5109E4249A10A9E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,7 +414,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -418,23 +442,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64DC13CC5109E4249A10A9E3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PixelTMDbTests/Pods-PixelTMDbTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PixelTMDbTests/Pods-PixelTMDbTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PixelTMDbTests/Pods-PixelTMDbTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E8F855BB0AB67CE4B901509B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DE5A4B2338583600AE236D /* DetailViewModel.swift in Sources */,
 				300118A82333BA8400DA9C3B /* InformationTableViewCell.swift in Sources */,
 				3071ABFB23325D5300D94BA1 /* MainViewController.swift in Sources */,
 				302453342333FBF700492877 /* Movie.swift in Sources */,
@@ -467,10 +475,10 @@
 				300118A42332CBCF00DA9C3B /* DetailViewController.swift in Sources */,
 				300118B22333F16700DA9C3B /* MoviesService.swift in Sources */,
 				300118AC2333BB4500DA9C3B /* CashTableViewCell.swift in Sources */,
-				30FBB7FC23355FEF00EFE5D0 /* MovieCellViewModel.swift in Sources */,
 				300118A22332AC5B00DA9C3B /* MovieTableViewCell.swift in Sources */,
 				3024533C2334032D00492877 /* Genre.swift in Sources */,
 				300118AA2333BAFD00DA9C3B /* DatesTableViewCell.swift in Sources */,
+				A7DE5A4D233878EB00AE236D /* UIView+Extension.swift in Sources */,
 				3001189623329CC100DA9C3B /* R.generated.swift in Sources */,
 				302453382333FE3900492877 /* Dates.swift in Sources */,
 				300118AF2333C6DC00DA9C3B /* UILabel+Extension.swift in Sources */,
@@ -483,7 +491,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3071AC0E23325D5500D94BA1 /* PixelTMDbTests.swift in Sources */,
+				A7DE5A502338812000AE236D /* MoviesGatewayTests.swift in Sources */,
+				A7DE5A562338883E00AE236D /* MainViewModelTest.swift in Sources */,
+				A7DE5A54233884C500AE236D /* DetailViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

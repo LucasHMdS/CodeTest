@@ -25,7 +25,7 @@ extension MoviesService: TargetType {
                 return "upcoming"
             
             case .getMovie(let id):
-                return "movie/\(id)"
+                return "\(id)"
         }
     }
     
