@@ -21,6 +21,7 @@ class MainViewModel {
     let informationMessage: PublishSubject<String> = PublishSubject()
     let isLoading: PublishSubject<Bool> = PublishSubject()
     let movies: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
+    let searchFilter: PublishSubject<String> = PublishSubject()
     
     // MARK: - Public Functions
     func fetchUpcomingMovies() {
@@ -57,5 +58,10 @@ class MainViewModel {
     func loadedMovie(index: Int) {
         guard (index > (movieCount - 3)) else { return }
         self.fetchUpcomingMovies()
+    }
+    
+    func searchMovie(title: String) {
+        print(title)
+        self.searchFilter.onNext(title)
     }
 }

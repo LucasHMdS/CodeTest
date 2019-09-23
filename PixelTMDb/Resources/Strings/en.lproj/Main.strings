@@ -7,6 +7,7 @@
 */
 
 "Upcoming" = "Upcoming";
+"Upcoming Movie" = "Upcoming - %@";
 "No movies found" = "NO MOVIES FOUND";
 "No more movies to load" = "NO MORE MOVIES TO LOAD";
 "Genres not defined" = "Genres not defined!";

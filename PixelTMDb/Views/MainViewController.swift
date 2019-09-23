@@ -21,6 +21,14 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.barTintColor = R.color.viewBackgroundColor()
+        searchBar.isHidden = true
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
     private let searchButton: UIButton = {
         guard let image = R.image.searchIcon() else {
             return UIButton()
@@ -77,6 +85,7 @@ class MainViewController: UIViewController {
     
     private func setupSubviews() {
         view.addSubview(titleLabel)
+        view.addSubview(searchBar)
         view.addSubview(searchButton)
         view.addSubview(moviesTableView)
         view.addSubview(loadingActivityIndicatorView)
@@ -93,6 +102,11 @@ class MainViewController: UIViewController {
         titleLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: edge).isActive = true
         titleLabel.rightAnchor.constraint(greaterThanOrEqualTo: searchButton.leftAnchor, constant: (-1 * distance)).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: size).isActive = true
+        
+        searchBar.topAnchor.constraint(equalTo: titleLabel.topAnchor).isActive = true
+        searchBar.leftAnchor.constraint(equalTo: titleLabel.leftAnchor).isActive = true
+        searchBar.rightAnchor.constraint(equalTo: titleLabel.rightAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
         
         searchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edge).isActive = true
         searchButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: (-1 * edge)).isActive = true
@@ -160,16 +174,31 @@ class MainViewController: UIViewController {
             self.view.layoutIfNeeded()
         }.subscribe().disposed(by: disposeBag)
         
-        viewModel.movies.bind(to: moviesTableView.rx.items(cellIdentifier: "MovieTableViewCell", cellType: MovieTableViewCell.self)) {
+        Observable<[Movie]>.combineLatest(viewModel.movies, viewModel.searchFilter, resultSelector: {
+            movies, searchText in
+            guard (searchText != "") else { return movies }
+            return movies.filter { $0.title.uppercased().contains(searchText.uppercased()) }
+        }).bind(to: moviesTableView.rx.items(cellIdentifier: "MovieTableViewCell", cellType: MovieTableViewCell.self)) {
             row, movie, cell in
             cell.backgroundColor = .clear
             cell.setupMovie(movie)
         }.disposed(by: disposeBag)
         
+        searchBar.rx.text.orEmpty.debounce(0.5, scheduler: MainScheduler.instance).distinctUntilChanged().map {
+            [weak self] query in
+            guard let `self` = self else { return }
+            if (query == "") {
+                self.titleLabel.text = R.string.main.upcoming()
+            } else {
+                self.titleLabel.text = R.string.main.upcomingMovie(query)
+            }
+            self.viewModel.searchMovie(title: query)
+        }.subscribe().disposed(by: disposeBag)
+        
         searchButton.rx.tap.bind {
             [weak self] in
             guard let `self` = self else { return }
-            self.onTouchSearch()
+            self.searchBar.isHidden = !self.searchBar.isHidden
         }.disposed(by: disposeBag)
         
         moviesTableView.rx.willDisplayCell.bind(onNext: {
@@ -212,10 +241,5 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.fetchUpcomingMovies()
-    }
-    
-    // MARK: - Actions
-    @objc func onTouchSearch() {
-        print("Search touched!")
     }
 }
