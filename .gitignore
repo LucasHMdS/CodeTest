@@ -92,3 +92,4 @@ Dependencies/
 
 # R.Swift
 *.generated.swift
+*.DS_Store

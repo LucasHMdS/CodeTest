@@ -1,0 +1,17 @@
+/* 
+  English.strings
+  PixelTMDb
+
+  Created by Lucas Henrique Machado Da Silva on 18/09/19.
+  Copyright © 2019 Lucas Henrique Machado da Silva. All rights reserved.
+*/
+
+"Upcoming" = "Upcoming";
+"Upcoming Movie" = "Upcoming - %@";
+"No movies found" = "NO MOVIES FOUND";
+"No more movies to load" = "NO MORE MOVIES TO LOAD";
+"Genres not defined" = "Genres not defined!";
+"Runtime not defined" = "Runtime not defined!";
+"Budget not defined" = "Budget not defined!";
+"Revenue not defined" = "Revenue not defined!";
+"Share Movie Message" = "The upcoming movie '%@' looks interesting, go take a look!";
